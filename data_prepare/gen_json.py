@@ -5,10 +5,7 @@ import numpy as np
 import cv2
 import json
 
-root_path = '/home/yangbai/project/dataset'
-anno_name = 'train_dataset.json'
-#anno_name = 'val_dataset.json'
-
+root_path = '/home/yangbai/project/dataset' #change as needed
 
 def read_class(class_path):
     with open (class_path, 'r') as f:
@@ -34,12 +31,9 @@ def fun(class_name):
 
 def main():
     class_path = osp.join(root_path, 'class.txt')
-    #labels_path = osp.join(root_path, 'labels.txt')
     folder = osp.join(root_path, 'annotations')
-    labels_path = osp.join(root_path, 'train_dataset.txt')
-    #labels_path = osp.join(root_path, 'val_dataset.txt')
-    json_name = osp.join(folder, 'train_80.json')
-    #json_name = osp.join(folder, 'val_20.json')
+    labels_path = osp.join(root_path, 'train_dataset.txt')  #change as needed
+    json_name = osp.join(folder, 'train_80.json')  #change as needed
     classes = read_class(class_path)
     annos = read_labels(labels_path)
     
@@ -107,7 +101,7 @@ def main():
                 'category_id': int(cls_id),
                 'id': k,
                 'image_id': k,
-                'is_crowd': 0,
+                'iscrowd': 0,
                 'segmentation': [[x1, y1, x2, y1, x2, y2, x1, y2]]
             })
     

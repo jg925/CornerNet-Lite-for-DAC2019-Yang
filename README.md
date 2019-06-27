@@ -1,4 +1,11 @@
 1. First things first, you should install the CornerNet-Lite according to the official installation.
+The Readme in the CornerNet subdirectory has all of that relevant information.
+
+6. Using python test_iou.py, you can get the evaluation of IoU on the validation.
+
+Training and validation can be done with the provided bash scripts. 
+
+The following are Yang's instructions on how to read results from a pkl file.
 
 2. Download the data partition and the trained model by the link I give you.
 
@@ -8,4 +15,3 @@
 
 5. If you don't find the cache/nnet/CornerNet_Squeeze folder, you can mkdir it into the CornerNet-Lite-master folder.
 
-6. Using python test_iou.py, you can get the evaluation of IoU on the validation.
