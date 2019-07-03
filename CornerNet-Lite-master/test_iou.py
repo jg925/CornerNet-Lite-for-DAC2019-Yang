@@ -2,14 +2,14 @@
 # 1. for the prediction 
 # 2. for the ground truth
 
-import mmcv
+import json
 import numpy as np
 import os
 import os.path as osp
 import glob
 
-val_root = './data/dac/annotations/val_new_20.json'
-pred_root = './results/CornerNet_Squeeze/310000/validation/results.json'
+val_root = './data/dac/annotations/dac_test_full.json'
+pred_root = './results/CornerNet_Squeeze/330000/validation/results.json'
 
 
 def bbox_iou(box1, box2):
@@ -79,8 +79,10 @@ def score_max2(data_pred):
 
 
 def main():
-    data_pred = mmcv.load(pred_root)
-    data_gt = mmcv.load(val_root)
+    with open(pred_root,'r') as f:
+        data_pred = json.load(f)
+    with open(val_root,'r') as f:
+        data_gt = json.load(f)
     #res_rm = score_max2(data_pred)
     res_rm = score_max(data_pred)
     
